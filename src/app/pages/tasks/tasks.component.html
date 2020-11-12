@@ -1,0 +1,21 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{task.$key}}</td>
+        <td>{{ task.title}}</td>
+        <td>{{ task.description}}</td>
+        <td>
+            <a class="btn btn-primary" [routerLink]="['/task', task.$key, 'update']" routerLinkActive="router-link-active" >Update</a>
+            <a class="btn btn-danger" (click)="deleteTask(task.$key)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
